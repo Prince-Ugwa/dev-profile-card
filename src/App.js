@@ -5,11 +5,13 @@ const skills = [
     skill: "HTML+CSS",
     level: "advanced",
     color: "#2662EA",
+    emoji: "💪",
   },
   {
     skill: "JavaScript",
     level: "advanced",
     color: "#EFD81D",
+    emoji: "💪",
   },
   {
     skill: "Web Design",
@@ -20,11 +22,13 @@ const skills = [
     skill: "Git and GitHub",
     level: "intermediate",
     color: "#E84F33",
+    emoji: "👍",
   },
   {
     skill: "React",
     level: "advanced",
     color: "#60DAFB",
+    emoji: "💪",
   },
   {
     skill: "Svelte",
@@ -75,6 +79,14 @@ function Intro() {
 function SkillList() {
   return (
     <div className="skill-list">
+      {/*skills.map((skill) => (
+        <Skill
+          skill={skill.skill}
+          level={skill.level}
+          color={skill.color}
+          emoji={skill.emoji}
+        />
+      ))*/}
       {skills.map((skill) => (
         <Skill skill={skill.skill} level={skill.level} color={skill.color} />
       ))}
@@ -85,7 +97,10 @@ function SkillList() {
 function Skill({ skill, level, color }) {
   return (
     <div className="skill" style={{ backgroundColor: color }}>
-      <span>{skill}</span>
+      <span> {skill}</span>
+      <span> {level === "beginner" && "🤏"}</span>
+      <span> {level === "intermediate" && "👍"}</span>
+      <span> {level === "advanced" && "💪"}</span>
     </div>
   );
 }
