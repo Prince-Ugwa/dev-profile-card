@@ -1,5 +1,38 @@
 import "./App.css";
 
+const skills = [
+  {
+    skill: "HTML+CSS",
+    level: "advanced",
+    color: "#2662EA",
+  },
+  {
+    skill: "JavaScript",
+    level: "advanced",
+    color: "#EFD81D",
+  },
+  {
+    skill: "Web Design",
+    level: "advanced",
+    color: "#C3DCAF",
+  },
+  {
+    skill: "Git and GitHub",
+    level: "intermediate",
+    color: "#E84F33",
+  },
+  {
+    skill: "React",
+    level: "advanced",
+    color: "#60DAFB",
+  },
+  {
+    skill: "Svelte",
+    level: "beginner",
+    color: "#FF3B00",
+  },
+];
+
 export default function App() {
   return (
     <div className="card">
@@ -28,23 +61,31 @@ function Intro() {
   );
 }
 
+// function SkillList() {
+//   // return (
+//   //   <div className="skill-list">
+//   //     <Skill name="HTML + CSS" emoji="💪" bgColor="#ff0000" />
+//   //     <Skill name="JavaScript" emoji="👍" bgColor="#654321" />
+//   //     <Skill name="React" emoji="🤏" bgColor="#123456" />
+//   //     <Skill name="Svelte" emoji="🤙" bgColor="#ff0" />
+//   //     <Skill name="Git & github" emoji="👊" bgColor="#00ff" />
+//   //   </div>
+//   // );
+// }
 function SkillList() {
   return (
     <div className="skill-list">
-      <Skill name="HTML + CSS" emoji="💪" bgColor="#ff0000" />
-      <Skill name="JavaScript" emoji="👍" bgColor="#654321" />
-      <Skill name="React" emoji="🤏" bgColor="#123456" />
-      <Skill name="Svelte" emoji="🤙" bgColor="#ff0" />
-      <Skill name="Git & github" emoji="👊" bgColor="#00ff" />
+      {skills.map((skill) => (
+        <Skill skill={skill.skill} level={skill.level} color={skill.color} />
+      ))}
     </div>
   );
 }
 
-function Skill({ name, emoji, bgColor }) {
+function Skill({ skill, level, color }) {
   return (
-    <div className="skill" style={{ backgroundColor: bgColor }}>
-      <span>{name}</span>
-      <span>{emoji}</span>
+    <div className="skill" style={{ backgroundColor: color }}>
+      <span>{skill}</span>
     </div>
   );
 }
